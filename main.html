@@ -48,7 +48,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 140px;
-	  margin-left:50px;
+      margin-left: 50px;
     }
     .brand-icon {
       background: #fff;
@@ -72,7 +72,8 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      width: 80%;
+      width: 90%;
+      max-width: 360px;
       margin: 0 auto;
       padding: 14px 16px;
       border: 0;
@@ -91,7 +92,14 @@
 
     .btn--small { width: auto; padding: 10px 12px; font-size: 14px; border-radius: 14px; }
 
-    .grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 8px; }
+    .grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+      flex: 1;
+      justify-content: center; /* центрируем по вертикали */
+    }
 
     .card {
       background: rgba(255,255,255,0.85);
@@ -115,12 +123,16 @@
       .btn { padding: 16px 18px; }
       .grid { gap: 14px; }
     }
+
+    /* Для главной страницы — центрируем содержимое */
+    #home {
+      justify-content: center;
+    }
   </style>
 </head>
 <body>
   <div class="bg" aria-hidden="true"></div>
   <div class="wrap">
-
 
     <div id="home" class="phone screen active">
       <div class="header">
@@ -139,7 +151,6 @@
       </div>
     </div>
 
-  
     <div id="view3d" class="phone screen">
       <div class="card">
         <h1>3D тур</h1>
