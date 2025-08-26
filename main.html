@@ -1,83 +1,114 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>Институт</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
+ <style>
+      :root {
+      --blue-1: #1e3a8a;
+      --blue-2: #2563eb;
+      --blue-3: #3b82f6;
+      --blue-4: #60a5fa;
+      --btn-radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { 
+      margin: 0; 
+      padding: 0; 
+      height: 100%; 
+      font-family: Arial, sans-serif; 
       background: #f5f5f5;
+      color: #0f172a;
+      text-align: center; /* Выравниваем текст по центру */
     }
 
     .wrap {
       max-width: 420px;
       margin: auto;
       padding: 10px;
-    }
-
-    .screen {
-      display: none;
-      animation: fadeIn 0.3s ease-in-out;
-    }
-
-    /* Отображаем выбранный экран */
-    .screen:target {
-      display: block;
-    }
-
-    /* Если нет hash — показываем главную */
-    body:not(:has(:target)) #home {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Центровка элементов */
     }
 
     .header {
       display: flex;
-      justify-content: space-between;
+      justify-content: center; /* Центрируем по горизонтали */
       align-items: center;
-      padding: 10px;
+      gap: 160px;
+      width: 100%;
+      padding: 5px 0;
+	 
     }
 
-    .brand-icon img {
+    .brand-icon {
+      background: #fff;
+      border-radius: 50%;
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
       height: 40px;
+      box-shadow: 0 2px 6px rgba(0,0,0,.2);
+    }
+    .brand-icon img {
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
     }
 
     .grid {
-      display: grid;
-      gap: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
       margin-top: 20px;
+      align-items: center; /* Центровка кнопок */
+      width: 100%;
     }
 
     .btn {
       display: block;
-      padding: 12px;
+      width: 90%;
+      max-width: 360px;
       text-align: center;
       text-decoration: none;
-      background: linear-gradient(to top, #2563eb, #60a5fa);
-      color: white;
-      border-radius: 8px;
-      font-size: 14px;
+      padding: 12px 16px;
+      border-radius: var(--btn-radius);
+      background-image: linear-gradient(to top, var(--blue-1), var(--blue-2), var(--blue-3), var(--blue-4));
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0 8px 16px rgba(30,58,138,.35);
+      transition: transform .08s ease, filter .08s ease;
+      margin: 0 auto; /* Центровка кнопок */
     }
+    .btn:active { transform: translateY(1px) scale(.99); filter: brightness(.95); }
 
-    .btn--small {
-      padding: 8px 12px;
-      font-size: 13px;
-    }
+    .btn--small { width: auto; padding: 10px 12px; font-size: 14px; border-radius: 14px; }
 
     .card {
       background: #fff;
       border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      padding: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,.15);
+      text-align: center; /* Центровка текста внутри карточки */
     }
 
     .actions {
-      display: flex;
-      gap: 10px;
-      margin-top: 20px;
-      flex-wrap: wrap;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content: center; /* Центровка кнопок внутри actions */
+      margin-top: 12px;
     }
+
+    .screen { display: none; }
+    .screen:target { display: block; }
+    body:not(:has(:target)) #home { display: block; }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
